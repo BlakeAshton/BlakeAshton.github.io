@@ -1,0 +1,529 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Blake "Durty" Ashton — Full Stack Developer</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+
+:root {
+  --bg: #000;
+  --border: rgba(255,255,255,0.08);
+  --muted: rgba(255,255,255,0.35);
+  --text: rgba(255,255,255,0.85);
+  --teal: #2dd4bf;
+  --teal-dim: rgba(45,212,191,0.12);
+  --teal-border: rgba(45,212,191,0.25);
+}
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'Inter', sans-serif;
+  font-size: 15px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  cursor: none;
+}
+
+#cd { position:fixed;width:5px;height:5px;background:var(--teal);border-radius:50%;pointer-events:none;z-index:9999;transform:translate(-50%,-50%); }
+#cr { position:fixed;width:28px;height:28px;border:1px solid rgba(45,212,191,0.3);border-radius:50%;pointer-events:none;z-index:9998;transform:translate(-50%,-50%);transition:width .18s,height .18s,border-color .18s; }
+body.hov #cr { width:42px;height:42px;border-color:rgba(45,212,191,0.7); }
+
+/* NAV */
+nav {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 40px;
+  height: 56px;
+  border-bottom: 1px solid var(--border);
+  background: rgba(0,0,0,0.8);
+  backdrop-filter: blur(16px);
+}
+
+.logo {
+  font-size: 14px;
+  font-weight: 500;
+  color: #fff;
+  text-decoration: none;
+  letter-spacing: -0.01em;
+}
+.logo span { color: var(--teal); }
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+  list-style: none;
+}
+.nav-links a {
+  font-size: 13px;
+  font-weight: 400;
+  color: var(--muted);
+  text-decoration: none;
+  transition: color 0.15s;
+}
+.nav-links a:hover { color: #fff; }
+
+.nav-gh {
+  font-size: 13px;
+  font-weight: 500;
+  color: #000;
+  background: var(--teal);
+  text-decoration: none;
+  padding: 7px 16px;
+  border-radius: 6px;
+  transition: opacity 0.15s, transform 0.15s;
+}
+.nav-gh:hover { opacity: 0.85; transform: translateY(-1px); }
+
+/* MAIN LAYOUT */
+main {
+  max-width: 680px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+/* HERO */
+.hero {
+  padding: 140px 0 120px;
+  border-bottom: 1px solid var(--border);
+}
+
+.hero-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  font-size: 12px;
+  font-weight: 400;
+  color: var(--teal);
+  margin-bottom: 32px;
+  letter-spacing: 0.01em;
+}
+.hero-tag::before {
+  content: '';
+  width: 5px; height: 5px;
+  border-radius: 50%;
+  background: var(--teal);
+  box-shadow: 0 0 8px var(--teal);
+  animation: blink 2s ease-in-out infinite;
+}
+@keyframes blink { 0%,100%{opacity:1} 50%{opacity:0.3} }
+
+.hero h1 {
+  font-size: clamp(36px, 6vw, 52px);
+  font-weight: 500;
+  color: #fff;
+  letter-spacing: -0.04em;
+  line-height: 1.1;
+  margin-bottom: 24px;
+}
+.hero h1 span { color: var(--teal); }
+
+.hero p {
+  font-size: 16px;
+  font-weight: 300;
+  color: var(--muted);
+  line-height: 1.75;
+  max-width: 480px;
+  margin-bottom: 40px;
+}
+
+.hero-actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+/* glass button */
+.btn-glass {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--teal);
+  background: var(--teal-dim);
+  border: 1px solid var(--teal-border);
+  border-radius: 8px;
+  padding: 9px 18px;
+  text-decoration: none;
+  backdrop-filter: blur(8px);
+  transition: background 0.2s, border-color 0.2s, transform 0.15s;
+  position: relative;
+  overflow: hidden;
+}
+.btn-glass::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(255,255,255,0.06) 0%, transparent 50%);
+  pointer-events: none;
+}
+.btn-glass:hover {
+  background: rgba(45,212,191,0.18);
+  border-color: rgba(45,212,191,0.45);
+  transform: translateY(-1px);
+}
+
+.btn-ghost {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 13px;
+  font-weight: 400;
+  color: var(--muted);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 9px 18px;
+  text-decoration: none;
+  transition: color 0.15s, border-color 0.15s;
+}
+.btn-ghost:hover { color: #fff; border-color: rgba(255,255,255,0.2); }
+
+/* SECTIONS */
+section {
+  padding: 80px 0;
+  border-bottom: 1px solid var(--border);
+}
+
+.section-label {
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 40px;
+}
+
+/* ABOUT */
+.about-text {
+  font-size: 15px;
+  font-weight: 300;
+  color: var(--muted);
+  line-height: 1.8;
+  margin-bottom: 48px;
+}
+.about-text strong { color: var(--text); font-weight: 500; }
+
+.skills-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+}
+.skill-group {}
+.skill-group-name {
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.2);
+  margin-bottom: 10px;
+}
+.skill-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+.skill {
+  font-size: 12px;
+  font-weight: 400;
+  color: var(--muted);
+  border: 1px solid var(--border);
+  border-radius: 5px;
+  padding: 4px 10px;
+  transition: color 0.15s, border-color 0.15s;
+  cursor: default;
+}
+.skill:hover { color: var(--teal); border-color: var(--teal-border); }
+
+/* PROJECTS */
+.project-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+  background: var(--border);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  overflow: hidden;
+}
+.project {
+  background: #000;
+  padding: 22px 24px;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 16px;
+  align-items: start;
+  transition: background 0.15s;
+}
+.project:hover { background: rgba(255,255,255,0.02); }
+
+.project-name {
+  font-size: 14px;
+  font-weight: 500;
+  color: #fff;
+  margin-bottom: 4px;
+  letter-spacing: -0.01em;
+}
+.project-desc {
+  font-size: 13px;
+  font-weight: 300;
+  color: var(--muted);
+  line-height: 1.6;
+  margin-bottom: 12px;
+}
+.project-tags {
+  display: flex;
+  gap: 5px;
+  flex-wrap: wrap;
+}
+.ptag {
+  font-size: 11px;
+  color: rgba(45,212,191,0.6);
+  background: var(--teal-dim);
+  border: 1px solid rgba(45,212,191,0.12);
+  border-radius: 4px;
+  padding: 2px 7px;
+}
+
+.project-right {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 10px;
+}
+.project-status {
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  padding: 3px 9px;
+  border-radius: 100px;
+}
+.s-live { color: #4ade80; background: rgba(74,222,128,0.08); border: 1px solid rgba(74,222,128,0.18); }
+.s-wip { color: #fbbf24; background: rgba(251,191,36,0.08); border: 1px solid rgba(251,191,36,0.18); }
+.s-arc { color: var(--muted); background: rgba(255,255,255,0.04); border: 1px solid var(--border); }
+
+.project-link {
+  font-size: 12px;
+  color: var(--muted);
+  text-decoration: none;
+  transition: color 0.15s;
+}
+.project-link:hover { color: var(--teal); }
+
+/* CONTACT */
+.contact-email {
+  font-size: clamp(20px, 4vw, 32px);
+  font-weight: 300;
+  color: #fff;
+  letter-spacing: -0.03em;
+  text-decoration: none;
+  border-bottom: 1px solid var(--border);
+  padding-bottom: 2px;
+  display: inline-block;
+  margin-bottom: 32px;
+  transition: color 0.2s, border-color 0.2s;
+}
+.contact-email:hover { color: var(--teal); border-color: var(--teal); }
+
+.contact-links {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+footer {
+  padding: 40px 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 12px;
+  color: rgba(255,255,255,0.18);
+}
+
+@media (max-width: 600px) {
+  nav { padding: 0 20px; }
+  .nav-links { display: none; }
+  main { padding: 0 20px; }
+  .skills-grid { grid-template-columns: 1fr; gap: 20px; }
+  .project { grid-template-columns: 1fr; }
+  .project-right { flex-direction: row; align-items: center; }
+  footer { flex-direction: column; gap: 8px; }
+}
+</style>
+</head>
+<body>
+
+<div id="cd"></div>
+<div id="cr"></div>
+
+<nav>
+  <a href="#" class="logo">durty<span>.</span></a>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <a href="https://github.com/BlakeAshton" target="_blank" class="nav-gh">GitHub ↗</a>
+</nav>
+
+<main>
+
+  <!-- HERO -->
+  <div class="hero">
+    <div class="hero-tag">Available for work</div>
+    <h1>Blake <span>"Durty"</span><br>Ashton.</h1>
+    <p>Full stack developer. I build clean, fast web applications — end to end. From database to UI.</p>
+    <div class="hero-actions">
+      <a href="#projects" class="btn-glass">View Projects</a>
+      <a href="https://github.com/BlakeAshton" target="_blank" class="btn-ghost">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg>
+        BlakeAshton
+      </a>
+    </div>
+  </div>
+
+  <!-- ABOUT -->
+  <section id="about">
+    <p class="section-label">About</p>
+    <p class="about-text">
+      I'm a <strong>full stack developer</strong> who builds things end to end. I care about clean code, thoughtful architecture, and UIs that actually feel good to use.<br><br>
+      Currently working with <strong>React, Node.js, Python</strong> and <strong>PostgreSQL</strong>. I like side projects, open source, and shipping fast.
+    </p>
+    <div class="skills-grid">
+      <div class="skill-group">
+        <div class="skill-group-name">Frontend</div>
+        <div class="skill-list">
+          <span class="skill">React</span>
+          <span class="skill">TypeScript</span>
+          <span class="skill">Next.js</span>
+          <span class="skill">CSS</span>
+        </div>
+      </div>
+      <div class="skill-group">
+        <div class="skill-group-name">Backend</div>
+        <div class="skill-list">
+          <span class="skill">Node.js</span>
+          <span class="skill">Python</span>
+          <span class="skill">FastAPI</span>
+          <span class="skill">REST</span>
+        </div>
+      </div>
+      <div class="skill-group">
+        <div class="skill-group-name">Data</div>
+        <div class="skill-list">
+          <span class="skill">PostgreSQL</span>
+          <span class="skill">MongoDB</span>
+          <span class="skill">Redis</span>
+        </div>
+      </div>
+      <div class="skill-group">
+        <div class="skill-group-name">Tooling</div>
+        <div class="skill-list">
+          <span class="skill">Git</span>
+          <span class="skill">Docker</span>
+          <span class="skill">Linux</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROJECTS -->
+  <section id="projects">
+    <p class="section-label">Projects</p>
+    <div class="project-list">
+      <div class="project">
+        <div>
+          <div class="project-name">Project Alpha</div>
+          <div class="project-desc">Replace with your best project. What does it do, why does it matter?</div>
+          <div class="project-tags">
+            <span class="ptag">React</span>
+            <span class="ptag">TypeScript</span>
+            <span class="ptag">PostgreSQL</span>
+          </div>
+        </div>
+        <div class="project-right">
+          <span class="project-status s-live">Live</span>
+          <a href="https://github.com/BlakeAshton" target="_blank" class="project-link">GitHub ↗</a>
+        </div>
+      </div>
+      <div class="project">
+        <div>
+          <div class="project-name">Project Beta</div>
+          <div class="project-desc">Something you're currently building. Shows momentum and range.</div>
+          <div class="project-tags">
+            <span class="ptag">Python</span>
+            <span class="ptag">FastAPI</span>
+            <span class="ptag">Redis</span>
+          </div>
+        </div>
+        <div class="project-right">
+          <span class="project-status s-wip">WIP</span>
+          <a href="https://github.com/BlakeAshton" target="_blank" class="project-link">GitHub ↗</a>
+        </div>
+      </div>
+      <div class="project">
+        <div>
+          <div class="project-name">Project Gamma</div>
+          <div class="project-desc">An older project showing where you came from.</div>
+          <div class="project-tags">
+            <span class="ptag">Vanilla JS</span>
+            <span class="ptag">Node.js</span>
+          </div>
+        </div>
+        <div class="project-right">
+          <span class="project-status s-arc">Archived</span>
+          <a href="https://github.com/BlakeAshton" target="_blank" class="project-link">GitHub ↗</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact">
+    <p class="section-label">Contact</p>
+    <a href="mailto:hey@durty.dev" class="contact-email">hey@durty.dev</a>
+    <div class="contact-links">
+      <a href="https://github.com/BlakeAshton" target="_blank" class="btn-glass">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg>
+        GitHub
+      </a>
+      <a href="mailto:hey@durty.dev" class="btn-ghost">Email</a>
+    </div>
+  </section>
+
+  <footer>
+    <span>Blake "Durty" Ashton</span>
+    <span>© 2026</span>
+  </footer>
+
+</main>
+
+<script>
+const cd = document.getElementById('cd'), cr = document.getElementById('cr');
+let mx = 0, my = 0, rx = 0, ry = 0;
+document.addEventListener('mousemove', e => {
+  mx = e.clientX; my = e.clientY;
+  cd.style.left = mx + 'px'; cd.style.top = my + 'px';
+});
+(function loop() {
+  rx += (mx - rx) * 0.12; ry += (my - ry) * 0.12;
+  cr.style.left = rx + 'px'; cr.style.top = ry + 'px';
+  requestAnimationFrame(loop);
+})();
+document.querySelectorAll('a, .skill, .project').forEach(el => {
+  el.addEventListener('mouseenter', () => document.body.classList.add('hov'));
+  el.addEventListener('mouseleave', () => document.body.classList.remove('hov'));
+});
+</script>
+</body>
+</html>
