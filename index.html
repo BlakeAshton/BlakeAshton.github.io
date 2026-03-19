@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Blake "Durty" Ashton — Full Stack Developer</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=DM+Mono:wght@300;400&display=swap" rel="stylesheet">
 <style>
 *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 html { scroll-behavior: smooth; }
@@ -34,7 +34,6 @@ body {
 #cr { position:fixed;width:28px;height:28px;border:1px solid rgba(45,212,191,0.3);border-radius:50%;pointer-events:none;z-index:9998;transform:translate(-50%,-50%);transition:width .18s,height .18s,border-color .18s; }
 body.hov #cr { width:42px;height:42px;border-color:rgba(45,212,191,0.7); }
 
-/* NAV */
 nav {
   position: fixed;
   top: 0; left: 0; right: 0;
@@ -85,14 +84,12 @@ nav {
 }
 .nav-gh:hover { opacity: 0.85; transform: translateY(-1px); }
 
-/* MAIN LAYOUT */
 main {
   max-width: 680px;
   margin: 0 auto;
   padding: 0 24px;
 }
 
-/* HERO */
 .hero {
   padding: 140px 0 120px;
   border-bottom: 1px solid var(--border);
@@ -143,7 +140,6 @@ main {
   gap: 12px;
 }
 
-/* glass button */
 .btn-glass {
   display: inline-flex;
   align-items: center;
@@ -189,7 +185,6 @@ main {
 }
 .btn-ghost:hover { color: #fff; border-color: rgba(255,255,255,0.2); }
 
-/* SECTIONS */
 section {
   padding: 80px 0;
   border-bottom: 1px solid var(--border);
@@ -204,7 +199,6 @@ section {
   margin-bottom: 40px;
 }
 
-/* ABOUT */
 .about-text {
   font-size: 15px;
   font-weight: 300;
@@ -219,7 +213,6 @@ section {
   grid-template-columns: 1fr 1fr;
   gap: 24px;
 }
-.skill-group {}
 .skill-group-name {
   font-size: 11px;
   font-weight: 500;
@@ -245,7 +238,6 @@ section {
 }
 .skill:hover { color: var(--teal); border-color: var(--teal-border); }
 
-/* PROJECTS */
 .project-list {
   display: flex;
   flex-direction: column;
@@ -310,7 +302,7 @@ section {
 }
 .s-live { color: #4ade80; background: rgba(74,222,128,0.08); border: 1px solid rgba(74,222,128,0.18); }
 .s-wip { color: #fbbf24; background: rgba(251,191,36,0.08); border: 1px solid rgba(251,191,36,0.18); }
-.s-arc { color: var(--muted); background: rgba(255,255,255,0.04); border: 1px solid var(--border); }
+.s-private { color: var(--muted); background: rgba(255,255,255,0.04); border: 1px solid var(--border); }
 
 .project-link {
   font-size: 12px;
@@ -320,7 +312,6 @@ section {
 }
 .project-link:hover { color: var(--teal); }
 
-/* CONTACT */
 .contact-email {
   font-size: clamp(20px, 4vw, 32px);
   font-weight: 300;
@@ -378,9 +369,8 @@ footer {
 
 <main>
 
-  <!-- HERO -->
   <div class="hero">
-    <div class="hero-tag">Available for work</div>
+    <div class="hero-tag">Perth, Australia</div>
     <h1>Blake <span>"Durty"</span><br>Ashton.</h1>
     <p>Full stack developer. I build clean, fast web applications — end to end. From database to UI.</p>
     <div class="hero-actions">
@@ -392,12 +382,11 @@ footer {
     </div>
   </div>
 
-  <!-- ABOUT -->
   <section id="about">
     <p class="section-label">About</p>
     <p class="about-text">
-      I'm a <strong>full stack developer</strong> who builds things end to end. I care about clean code, thoughtful architecture, and UIs that actually feel good to use.<br><br>
-      Currently working with <strong>React, Node.js, Python</strong> and <strong>PostgreSQL</strong>. I like side projects, open source, and shipping fast.
+      I'm a <strong>full stack developer</strong> based in Perth, Australia. I build things end to end — from database architecture to pixel-perfect UIs. I care about clean code, thoughtful systems design, and shipping things that actually work.<br><br>
+      Currently working with <strong>React, TypeScript, Node.js</strong> and <strong>Lua</strong>. I like side projects, hard problems, and building things from scratch.
     </p>
     <div class="skills-grid">
       <div class="skill-group">
@@ -414,7 +403,7 @@ footer {
         <div class="skill-list">
           <span class="skill">Node.js</span>
           <span class="skill">Python</span>
-          <span class="skill">FastAPI</span>
+          <span class="skill">Lua</span>
           <span class="skill">REST</span>
         </div>
       </div>
@@ -422,6 +411,7 @@ footer {
         <div class="skill-group-name">Data</div>
         <div class="skill-list">
           <span class="skill">PostgreSQL</span>
+          <span class="skill">MariaDB</span>
           <span class="skill">MongoDB</span>
           <span class="skill">Redis</span>
         </div>
@@ -432,63 +422,67 @@ footer {
           <span class="skill">Git</span>
           <span class="skill">Docker</span>
           <span class="skill">Linux</span>
+          <span class="skill">txAdmin</span>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- PROJECTS -->
   <section id="projects">
     <p class="section-label">Projects</p>
     <div class="project-list">
+
       <div class="project">
         <div>
-          <div class="project-name">Project Alpha</div>
-          <div class="project-desc">Replace with your best project. What does it do, why does it matter?</div>
+          <div class="project-name">Circle</div>
+          <div class="project-desc">A social media platform built for real connection. Clean feeds, fast interactions, and a focus on community over algorithm.</div>
           <div class="project-tags">
             <span class="ptag">React</span>
             <span class="ptag">TypeScript</span>
+            <span class="ptag">Node.js</span>
             <span class="ptag">PostgreSQL</span>
           </div>
         </div>
         <div class="project-right">
           <span class="project-status s-live">Live</span>
-          <a href="https://github.com/BlakeAshton" target="_blank" class="project-link">GitHub ↗</a>
+          <a href="https://circleapp.one" target="_blank" class="project-link">circleapp.one ↗</a>
         </div>
       </div>
+
       <div class="project">
         <div>
-          <div class="project-name">Project Beta</div>
-          <div class="project-desc">Something you're currently building. Shows momentum and range.</div>
+          <div class="project-name">RZN</div>
+          <div class="project-desc">A Netflix-style streaming application with content discovery, user profiles, and a polished playback experience.</div>
           <div class="project-tags">
-            <span class="ptag">Python</span>
-            <span class="ptag">FastAPI</span>
-            <span class="ptag">Redis</span>
-          </div>
-        </div>
-        <div class="project-right">
-          <span class="project-status s-wip">WIP</span>
-          <a href="https://github.com/BlakeAshton" target="_blank" class="project-link">GitHub ↗</a>
-        </div>
-      </div>
-      <div class="project">
-        <div>
-          <div class="project-name">Project Gamma</div>
-          <div class="project-desc">An older project showing where you came from.</div>
-          <div class="project-tags">
-            <span class="ptag">Vanilla JS</span>
+            <span class="ptag">React</span>
+            <span class="ptag">TypeScript</span>
             <span class="ptag">Node.js</span>
           </div>
         </div>
         <div class="project-right">
-          <span class="project-status s-arc">Archived</span>
-          <a href="https://github.com/BlakeAshton" target="_blank" class="project-link">GitHub ↗</a>
+          <span class="project-status s-wip">WIP</span>
+          <a href="https://github.com/BlakeAshton/RZN" target="_blank" class="project-link">GitHub ↗</a>
         </div>
       </div>
+
+      <div class="project">
+        <div>
+          <div class="project-name">AddonsPlus</div>
+          <div class="project-desc">A World of Warcraft addon that enhances the in-game UI with quality of life improvements and custom functionality.</div>
+          <div class="project-tags">
+            <span class="ptag">Lua</span>
+            <span class="ptag">WoW API</span>
+          </div>
+        </div>
+        <div class="project-right">
+          <span class="project-status s-live">Live</span>
+          <a href="https://github.com/BlakeAshton/AddonsPlus" target="_blank" class="project-link">GitHub ↗</a>
+        </div>
+      </div>
+
     </div>
   </section>
 
-  <!-- CONTACT -->
   <section id="contact">
     <p class="section-label">Contact</p>
     <a href="mailto:taureremixwow@gmail.com" class="contact-email">taureremixwow@gmail.com</a>
@@ -497,7 +491,7 @@ footer {
         <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg>
         GitHub
       </a>
-      <a href="mailto:hey@durty.dev" class="btn-ghost">Email</a>
+      <a href="mailto:taureremixwow@gmail.com" class="btn-ghost">Email</a>
     </div>
   </section>
 
