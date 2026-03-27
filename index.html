@@ -30,6 +30,8 @@ body {
   cursor: none;
 }
 
+#particles-bg { mix-blend-mode: screen; }
+
 #cd { position:fixed;width:5px;height:5px;background:var(--teal);border-radius:50%;pointer-events:none;z-index:9999;transform:translate(-50%,-50%); }
 #cr { position:fixed;width:28px;height:28px;border:1px solid rgba(45,212,191,0.3);border-radius:50%;pointer-events:none;z-index:9998;transform:translate(-50%,-50%);transition:width .18s,height .18s,border-color .18s; }
 body.hov #cr { width:42px;height:42px;border-color:rgba(45,212,191,0.7); }
@@ -88,6 +90,8 @@ main {
   max-width: 680px;
   margin: 0 auto;
   padding: 0 24px;
+  position: relative;
+  z-index: 2;
 }
 
 .hero {
@@ -353,6 +357,58 @@ footer {
 </style>
 </head>
 <body>
+
+<!-- Floating particles background -->
+<svg id="particles-bg" viewBox="0 0 400 800" xmlns="http://www.w3.org/2000/svg" style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; z-index: 1;">
+  <defs>
+    <style>
+      @keyframes float1 { 0%, 100% { transform: translateY(0px); opacity: 0.3; } 50% { transform: translateY(-40px); opacity: 0.8; } }
+      @keyframes float2 { 0%, 100% { transform: translateY(0px); opacity: 0.4; } 50% { transform: translateY(-50px); opacity: 0.7; } }
+      @keyframes float3 { 0%, 100% { transform: translateY(0px); opacity: 0.25; } 50% { transform: translateY(-35px); opacity: 0.75; } }
+      @keyframes float4 { 0%, 100% { transform: translateY(0px); opacity: 0.5; } 50% { transform: translateY(-45px); opacity: 0.6; } }
+      @keyframes float5 { 0%, 100% { transform: translateY(0px); opacity: 0.3; } 50% { transform: translateY(-38px); opacity: 0.8; } }
+      @keyframes float6 { 0%, 100% { transform: translateY(0px); opacity: 0.35; } 50% { transform: translateY(-48px); opacity: 0.7; } }
+      @keyframes float7 { 0%, 100% { transform: translateY(0px); opacity: 0.4; } 50% { transform: translateY(-42px); opacity: 0.75; } }
+      @keyframes float8 { 0%, 100% { transform: translateY(0px); opacity: 0.28; } 50% { transform: translateY(-36px); opacity: 0.65; } }
+      @keyframes float9 { 0%, 100% { transform: translateY(0px); opacity: 0.32; } 50% { transform: translateY(-44px); opacity: 0.72; } }
+      @keyframes float10 { 0%, 100% { transform: translateY(0px); opacity: 0.38; } 50% { transform: translateY(-39px); opacity: 0.78; } }
+      
+      .particle {
+        filter: drop-shadow(0 0 2px rgba(29, 158, 117, 0.8));
+      }
+      .p1 { animation: float1 4s ease-in-out infinite; }
+      .p2 { animation: float2 5.2s ease-in-out infinite; }
+      .p3 { animation: float3 4.8s ease-in-out infinite; }
+      .p4 { animation: float4 6s ease-in-out infinite; }
+      .p5 { animation: float5 5.5s ease-in-out infinite; }
+      .p6 { animation: float6 4.5s ease-in-out infinite; }
+      .p7 { animation: float7 5.8s ease-in-out infinite; }
+      .p8 { animation: float8 4.3s ease-in-out infinite; }
+      .p9 { animation: float9 5.3s ease-in-out infinite; }
+      .p10 { animation: float10 4.9s ease-in-out infinite; }
+    </style>
+    
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="1.5" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+  
+  <!-- Floating particles scattered across the page -->
+  <circle cx="60" cy="450" r="2.5" fill="rgba(29, 158, 117, 0.8)" class="particle p1" filter="url(#glow)"/>
+  <circle cx="380" cy="150" r="2" fill="rgba(29, 158, 117, 0.7)" class="particle p2" filter="url(#glow)"/>
+  <circle cx="150" cy="380" r="2.2" fill="rgba(29, 158, 117, 0.75)" class="particle p3" filter="url(#glow)"/>
+  <circle cx="280" cy="520" r="1.8" fill="rgba(29, 158, 117, 0.65)" class="particle p4" filter="url(#glow)"/>
+  <circle cx="320" cy="200" r="2.3" fill="rgba(29, 158, 117, 0.8)" class="particle p5" filter="url(#glow)"/>
+  <circle cx="120" cy="300" r="1.9" fill="rgba(29, 158, 117, 0.7)" class="particle p6" filter="url(#glow)"/>
+  <circle cx="210" cy="480" r="2.4" fill="rgba(29, 158, 117, 0.75)" class="particle p7" filter="url(#glow)"/>
+  <circle cx="40" cy="250" r="2" fill="rgba(29, 158, 117, 0.65)" class="particle p8" filter="url(#glow)"/>
+  <circle cx="340" cy="600" r="2.1" fill="rgba(29, 158, 117, 0.72)" class="particle p9" filter="url(#glow)"/>
+  <circle cx="90" cy="100" r="2.2" fill="rgba(29, 158, 117, 0.78)" class="particle p10" filter="url(#glow)"/>
+</svg>
 
 <div id="cd"></div>
 <div id="cr"></div>
