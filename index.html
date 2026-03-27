@@ -359,7 +359,7 @@ footer {
 <body>
 
 <!-- Floating particles background -->
-<svg id="particles-bg" viewBox="0 0 400 800" xmlns="http://www.w3.org/2000/svg" style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; z-index: 1;">
+<svg id="particles-bg" viewBox="0 0 1400 1000" xmlns="http://www.w3.org/2000/svg" style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; z-index: 1; preserveAspectRatio: none;">
   <defs>
     <style>
       @keyframes float1 { 0%, 100% { transform: translateY(0px); opacity: 0.3; } 50% { transform: translateY(-40px); opacity: 0.8; } }
@@ -397,17 +397,21 @@ footer {
     </filter>
   </defs>
   
-  <!-- Floating particles scattered across the page -->
-  <circle cx="60" cy="450" r="2.5" fill="rgba(29, 158, 117, 0.8)" class="particle p1" filter="url(#glow)"/>
-  <circle cx="380" cy="150" r="2" fill="rgba(29, 158, 117, 0.7)" class="particle p2" filter="url(#glow)"/>
-  <circle cx="150" cy="380" r="2.2" fill="rgba(29, 158, 117, 0.75)" class="particle p3" filter="url(#glow)"/>
-  <circle cx="280" cy="520" r="1.8" fill="rgba(29, 158, 117, 0.65)" class="particle p4" filter="url(#glow)"/>
-  <circle cx="320" cy="200" r="2.3" fill="rgba(29, 158, 117, 0.8)" class="particle p5" filter="url(#glow)"/>
-  <circle cx="120" cy="300" r="1.9" fill="rgba(29, 158, 117, 0.7)" class="particle p6" filter="url(#glow)"/>
-  <circle cx="210" cy="480" r="2.4" fill="rgba(29, 158, 117, 0.75)" class="particle p7" filter="url(#glow)"/>
-  <circle cx="40" cy="250" r="2" fill="rgba(29, 158, 117, 0.65)" class="particle p8" filter="url(#glow)"/>
-  <circle cx="340" cy="600" r="2.1" fill="rgba(29, 158, 117, 0.72)" class="particle p9" filter="url(#glow)"/>
-  <circle cx="90" cy="100" r="2.2" fill="rgba(29, 158, 117, 0.78)" class="particle p10" filter="url(#glow)"/>
+  <!-- Floating particles scattered across full page width -->
+  <circle cx="80" cy="450" r="2.5" fill="rgba(29, 158, 117, 0.8)" class="particle p1" filter="url(#glow)"/>
+  <circle cx="1100" cy="150" r="2" fill="rgba(29, 158, 117, 0.7)" class="particle p2" filter="url(#glow)"/>
+  <circle cx="400" cy="380" r="2.2" fill="rgba(29, 158, 117, 0.75)" class="particle p3" filter="url(#glow)"/>
+  <circle cx="850" cy="520" r="1.8" fill="rgba(29, 158, 117, 0.65)" class="particle p4" filter="url(#glow)"/>
+  <circle cx="1200" cy="200" r="2.3" fill="rgba(29, 158, 117, 0.8)" class="particle p5" filter="url(#glow)"/>
+  <circle cx="250" cy="300" r="1.9" fill="rgba(29, 158, 117, 0.7)" class="particle p6" filter="url(#glow)"/>
+  <circle cx="700" cy="480" r="2.4" fill="rgba(29, 158, 117, 0.75)" class="particle p7" filter="url(#glow)"/>
+  <circle cx="150" cy="250" r="2" fill="rgba(29, 158, 117, 0.65)" class="particle p8" filter="url(#glow)"/>
+  <circle cx="950" cy="600" r="2.1" fill="rgba(29, 158, 117, 0.72)" class="particle p9" filter="url(#glow)"/>
+  <circle cx="550" cy="100" r="2.2" fill="rgba(29, 158, 117, 0.78)" class="particle p10" filter="url(#glow)"/>
+  <circle cx="1300" cy="750" r="2" fill="rgba(29, 158, 117, 0.68)" class="particle p1" filter="url(#glow)"/>
+  <circle cx="200" cy="650" r="2.3" fill="rgba(29, 158, 117, 0.76)" class="particle p2" filter="url(#glow)"/>
+  <circle cx="800" cy="850" r="1.9" fill="rgba(29, 158, 117, 0.64)" class="particle p3" filter="url(#glow)"/>
+  <circle cx="450" cy="700" r="2.2" fill="rgba(29, 158, 117, 0.74)" class="particle p4" filter="url(#glow)"/>
 </svg>
 
 <div id="cd"></div>
@@ -541,13 +545,13 @@ footer {
 
   <section id="contact">
     <p class="section-label">Contact</p>
-    <a href="mailto:taureremixwow@gmail.com" class="contact-email">taureremixwow@gmail.com</a>
+    <a href="/cdn-cgi/l/email-protection#80f4e1f5f2e5f2e5ede9f8f7eff7c0e7ede1e9ecaee3efed" class="contact-email"><span class="__cf_email__" data-cfemail="9aeefbefe8ffe8fff7f3e2edf5eddafdf7fbf3f6b4f9f5f7">[email&#160;protected]</span></a>
     <div class="contact-links">
       <a href="https://github.com/BlakeAshton" target="_blank" class="btn-glass">
         <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg>
         GitHub
       </a>
-      <a href="mailto:taureremixwow@gmail.com" class="btn-ghost">Email</a>
+      <a href="/cdn-cgi/l/email-protection#86f2e7f3f4e3f4e3ebeffef1e9f1c6e1ebe7efeaa8e5e9eb" class="btn-ghost">Email</a>
     </div>
   </section>
 
@@ -558,7 +562,7 @@ footer {
 
 </main>
 
-<script>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
 const cd = document.getElementById('cd'), cr = document.getElementById('cr');
 let mx = 0, my = 0, rx = 0, ry = 0;
 document.addEventListener('mousemove', e => {
@@ -567,13 +571,4 @@ document.addEventListener('mousemove', e => {
 });
 (function loop() {
   rx += (mx - rx) * 0.12; ry += (my - ry) * 0.12;
-  cr.style.left = rx + 'px'; cr.style.top = ry + 'px';
-  requestAnimationFrame(loop);
-})();
-document.querySelectorAll('a, .skill, .project').forEach(el => {
-  el.addEventListener('mouseenter', () => document.body.classList.add('hov'));
-  el.addEventListener('mouseleave', () => document.body.classList.remove('hov'));
-});
-</script>
-</body>
-</html>
+  cr.style.left = rx + 'px'; cr.style.top = ry + 'p
