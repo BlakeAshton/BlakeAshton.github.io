@@ -30,7 +30,8 @@ body {
   cursor: none;
 }
 
-#particles-bg { mix-blend-mode: screen; }
+#particles-bg { mix-blend-mode: screen; pointer-events: none !important; }
+#particles-bg * { pointer-events: none !important; }
 
 #cd { position:fixed;width:5px;height:5px;background:var(--teal);border-radius:50%;pointer-events:none;z-index:9999;transform:translate(-50%,-50%); }
 #cr { position:fixed;width:28px;height:28px;border:1px solid rgba(45,212,191,0.3);border-radius:50%;pointer-events:none;z-index:9998;transform:translate(-50%,-50%);transition:width .18s,height .18s,border-color .18s; }
@@ -359,7 +360,7 @@ footer {
 <body>
 
 <!-- Floating particles background -->
-<svg id="particles-bg" viewBox="0 0 1400 1000" xmlns="http://www.w3.org/2000/svg" style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; z-index: 1; preserveAspectRatio: none;">
+<svg id="particles-bg" viewBox="0 0 1400 1000" xmlns="http://www.w3.org/2000/svg" style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none !important; z-index: 1; preserveAspectRatio: none;">
   <defs>
     <style>
       @keyframes float1 { 0%, 100% { transform: translateY(0px); opacity: 0.3; } 50% { transform: translateY(-40px); opacity: 0.8; } }
