@@ -696,4 +696,15 @@ document.addEventListener('mousemove', (e) => {
   ry += (my - ry) * 0.12;
   cr.style.left = rx + 'px';
   cr.style.top = ry + 'px';
-  requestAnimationFram
+  requestAnimationFrame(loop);
+})();
+
+document.querySelectorAll('a, .skill, .project').forEach((el) => {
+  el.addEventListener('mouseenter', () => {
+    document.body.classList.add('hov');
+  });
+  el.addEventListener('mouseleave', () => {
+    document.body.classList.remove('hov');
+  });
+});
+</script>
